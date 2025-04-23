@@ -1,0 +1,104 @@
+/* src/styles/components/ReflectionSection.css */
+.reflection-section {
+    padding: 60px 0;
+    background-color: #FFFFFF;
+    color: #333333;
+  }
+  
+  .reflection-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+  }
+  
+  .reflection-intro h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .reflection-intro h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary);
+    margin: 0 auto;
+  }
+  
+  .reflection-intro p {
+    line-height: 1.8;
+    color: var(--text-light);
+  }
+  
+  .progress-section {
+    margin-top: 60px;
+    text-align: center;
+  }
+  
+  .progress-section h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .progress-intro {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: var(--text-light);
+  }
+  
+  .final-reflection {
+    margin-top: 80px;
+    background-color: #F8F8F8;
+    border-radius: var(--border-radius);
+    padding: 40px;
+    box-shadow: var(--shadow);
+  }
+  
+  .final-reflection h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .final-reflection h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary);
+  }
+  
+  .reflection-content p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+  }
+  
+  @media (max-width: 768px) {
+    .reflection-section {
+      padding: 40px 0;
+    }
+    
+    .reflection-intro h2,
+    .final-reflection h3 {
+      font-size: 1.7rem;
+    }
+    
+    .final-reflection {
+      padding: 30px 20px;
+    }
+    
+    .progress-section {
+      margin-top: 40px;
+    }
+  }

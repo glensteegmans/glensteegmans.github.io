@@ -1,0 +1,120 @@
+/* src/styles/components/XFactorModel.css */
+.x-factor-model {
+    margin: 50px 0;
+    text-align: center;
+  }
+  
+  .model-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+  }
+  
+  .model-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4568dc, #5e35b1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 0 20px rgba(69, 104, 220, 0.6);
+    z-index: 5;
+  }
+  
+  .model-factor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #F0F0F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%) rotate(var(--factor-position)) translateY(-140px) rotate(calc(-1 * var(--factor-position)));
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+  }
+  
+  .model-factor:hover,
+  .model-factor.active {
+    transform: translate(-50%, -50%) rotate(var(--factor-position)) translateY(-150px) rotate(calc(-1 * var(--factor-position)));
+    background-color: var(--factor-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    border: 2px solid white;
+  }
+  
+  .factor-icon {
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+  }
+  
+  .model-factor:hover .factor-icon,
+  .model-factor.active .factor-icon {
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .factor-name {
+    position: absolute;
+    white-space: nowrap;
+    bottom: -30px;
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
+  }
+  
+  .model-factor:hover .factor-name,
+  .model-factor.active .factor-name {
+    opacity: 1;
+    color: var(--factor-color);
+  }
+  
+  .model-legend {
+    margin-top: 30px;
+    color: #555;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  
+  @media (max-width: 768px) {
+    .model-container {
+      width: 320px;
+      height: 320px;
+    }
+    
+    .model-center {
+      width: 70px;
+      height: 70px;
+      font-size: 0.9rem;
+    }
+    
+    .model-factor {
+      width: 60px;
+      height: 60px;
+      transform: translate(-50%, -50%) rotate(var(--factor-position)) translateY(-110px) rotate(calc(-1 * var(--factor-position)));
+    }
+    
+    .model-factor:hover,
+    .model-factor.active {
+      transform: translate(-50%, -50%) rotate(var(--factor-position)) translateY(-120px) rotate(calc(-1 * var(--factor-position)));
+    }
+    
+    .factor-icon {
+      font-size: 1.5rem;
+    }
+  }

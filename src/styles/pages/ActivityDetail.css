@@ -1,0 +1,262 @@
+/* src/styles/components/ActivityDetail.css */
+.activity-detail {
+  min-height: 100vh;
+  background-color: #FFFFFF;
+  color: #333333;
+}
+
+.activity-header {
+  background-color: #FFFFFF;
+  padding: 60px 0 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.activity-header-content {
+  max-width: 900px;
+}
+
+.activity-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.activity-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activity-organization {
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.activity-period {
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+.organization-logo-container {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.organization-logo {
+  max-height: 100%;
+  max-width: 200px;
+  object-fit: contain;
+}
+
+.activity-content {
+  padding: 60px 20px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 40px;
+  max-width: 900px;
+}
+
+.activity-main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.activity-description h2,
+.activity-achievements h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--text);
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.activity-description h2::after,
+.activity-achievements h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--primary);
+  border-radius: 3px;
+}
+
+.activity-description p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-light);
+}
+
+.activity-achievements ul {
+  padding-left: 20px;
+}
+
+.activity-achievements li {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-light);
+}
+
+.activity-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.activity-skills-box,
+.activity-tools-box,
+.activity-links-box {
+  background-color: #F8F8F8;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.activity-sidebar h3 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: var(--text);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  font-size: 0.85rem;
+  background-color: rgba(42, 109, 244, 0.1);
+  color: var(--primary);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.activity-tools-box ul,
+.activity-links-box ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.activity-tools-box li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  position: relative;
+  padding-left: 18px;
+}
+
+.activity-tools-box li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.activity-links-box li {
+  margin-bottom: 10px;
+}
+
+.activity-links-box a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+  display: inline-flex;
+  align-items: center;
+}
+
+.activity-links-box a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Verbeterde stijl voor de banner in de detailweergave */
+.activity-banner {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* White background for better visibility of PNG logos */
+  margin: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.activity-banner img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.activity-banner:hover img {
+  transform: scale(1.05);
+}
+
+.back-button {
+  display: inline-block;
+  background-color: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: var(--primary-dark);
+}
+
+.back-section {
+  margin-top: 30px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .activity-header {
+    padding: 40px 0 30px;
+  }
+  
+  .activity-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .activity-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .organization-logo-container {
+    align-self: center;
+  }
+  
+  .activity-content {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+  }
+  
+  .activity-banner {
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .activity-banner {
+    height: 120px;
+  }
+}

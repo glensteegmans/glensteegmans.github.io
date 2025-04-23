@@ -1,0 +1,95 @@
+/* src/styles/components/Activities.css */
+.activities-section {
+    padding: 60px 0;
+    background-color: #FFFFFF;
+    color: #333333;
+  }
+  
+  .activities-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+  }
+  
+  .activities-intro h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .activities-intro h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary);
+    margin: 0 auto;
+  }
+  
+  .activities-intro p {
+    line-height: 1.8;
+    color: var(--text-light);
+  }
+  
+  .activities-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+  
+  .tab-btn {
+    padding: 12px 20px;
+    background-color: #F8F8F8;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+  }
+  
+  .tab-btn:hover {
+    background-color: rgba(42, 109, 244, 0.1);
+    transform: translateY(-3px);
+  }
+  
+  .tab-btn.active {
+    background-color: var(--primary);
+    color: white;
+  }
+  
+  .tab-content {
+    min-height: 400px;
+  }
+  
+  @media (max-width: 992px) {
+    .activities-tabs {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .tab-btn {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .activities-section {
+      padding: 40px 0;
+    }
+    
+    .activities-intro h2 {
+      font-size: 1.7rem;
+    }
+  }
