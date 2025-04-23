@@ -1,54 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+// src/App.js
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Pages
+import Home from './pages/Home';
+import Activities from './pages/Activities';
+import Profile from './pages/Profile';
+import Reflection from './pages/Reflection';
+import NotFound from './pages/NotFound';
+
+// Components
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
-import Home from './pages/Home';
-import Profile from './pages/Profile';
-import Activities from './pages/Activities';
-import ActivityDetail from './pages/ActivityDetail';
-import Reflection from './pages/Reflection';
-import { ThemeContext } from './contexts/ThemeContext';
+
+// Styles
+import './styles/App.css';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-
+  // Force dark mode on page load
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      setDarkMode(true);
-      document.body.classList.add('dark-mode');
-    }
+    document.body.classList.add('dark-mode');
   }, []);
 
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    if (!darkMode) {
-      document.body.classList.add('dark-mode');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.body.classList.remove('dark-mode');
-      localStorage.setItem('theme', 'light');
-    }
-  };
-
   return (
-    <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
-      <Router>
-        <div className="App">
-          <Header />
-          <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/profiel" element={<Profile />} />
-              <Route path="/activiteiten" element={<Activities />} />
-              <Route path="/activiteit/:id" element={<ActivityDetail />} />
-              <Route path="/reflectie" element={<Reflection />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </Router>
-    </ThemeContext.Provider>
+    <Router>
+      <div className="app dark-mode">
+        <Header />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/activiteiten" element={<Activities />} />
+            <Route path="/profiel" element={<Profile />} />
+            <Route path="/reflectie" element={<Reflection />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

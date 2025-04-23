@@ -1,19 +1,23 @@
+// src/components/activities/ActivityCard.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/components/ActivityCard.css';
 
 const ActivityCard = ({ activity }) => {
   return (
-    <div className="activity-card card">
-      <div className="activity-image">
+    <div className="activity-card">
+      <div className="activity-card-image">
         <img src={activity.image} alt={activity.title} />
       </div>
-      <div className="activity-content">
+      <div className="activity-card-content">
         <h3>{activity.title}</h3>
         <div className="activity-tags">
-          {activity.tags.map((tag, index) => (
+          {activity.tags.slice(0, 3).map((tag, index) => (
             <span key={index} className="tag">{tag}</span>
           ))}
+          {activity.tags.length > 3 && (
+            <span className="tag-more">+{activity.tags.length - 3}</span>
+          )}
         </div>
         <p>{activity.description}</p>
         <div className="activity-meta">
@@ -24,7 +28,7 @@ const ActivityCard = ({ activity }) => {
             <span className="icon">🗓️</span> {activity.period}
           </div>
         </div>
-        <Link to={`/activiteit/${activity.id}`} className="btn">
+        <Link to={`/activiteit/${activity.id}`} className="activity-card-btn">
           Lees meer
         </Link>
       </div>

@@ -1,0 +1,41 @@
+/* src/styles/components/XFactorCard.css */
+.xfactor-card {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 25px;
+    text-align: center;
+    transition: var(--transition);
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .xfactor-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+  }
+  
+  .xfactor-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .xfactor-card h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .xfactor-card p {
+    font-size: 0.9rem;
+    color: var(--text);
+    opacity: 0.9;
+  }

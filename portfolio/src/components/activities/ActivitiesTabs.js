@@ -1,3 +1,4 @@
+// src/components/activities/ActivitiesTabs.js
 import React, { useState } from 'react';
 import ActivityCard from './ActivityCard';
 import { featuredActivities, requiredActivities, extraActivities } from '../../data/activities';
@@ -39,8 +40,8 @@ const ActivitiesTabs = () => {
         )}
         
         {activeTab === 'required' && (
-          <div className="activities-table">
-            <table>
+          <div className="activities-table-container">
+            <table className="activities-table">
               <thead>
                 <tr>
                   <th>Activiteit</th>
@@ -64,8 +65,8 @@ const ActivitiesTabs = () => {
         )}
         
         {activeTab === 'extra' && (
-          <div className="activities-table">
-            <table>
+          <div className="activities-table-container">
+            <table className="activities-table">
               <thead>
                 <tr>
                   <th>Domein</th>

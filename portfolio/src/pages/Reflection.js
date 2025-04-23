@@ -1,16 +1,18 @@
+// src/pages/Reflection.js
 import React from 'react';
 import PageHeader from '../components/layout/PageHeader';
-import ReflectionSection from '../components/reflection/ReflectionSection';
 
 const Reflection = () => {
   return (
-    <>
-      <PageHeader 
-        title="Eindreflectie" 
-        subtitle="Mijn groei als IT-professional tijdens de opleiding"
+    <div className="reflection-page">
+      <PageHeader
+        title="Reflectie"
+        subtitle="Terugblik op mijn ervaringen en ontwikkeling"
       />
-      <ReflectionSection />
-    </>
+      <div className="container section">
+        <p>Deze pagina wordt momenteel ontwikkeld.</p>
+      </div>
+    </div>
   );
 };
 

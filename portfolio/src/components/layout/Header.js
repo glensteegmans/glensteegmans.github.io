@@ -1,56 +1,66 @@
-import React, { useContext, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import React, { useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import '../../styles/components/Header.css';
 
 const Header = () => {
-  const { darkMode, toggleTheme } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  // Handle scroll events
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <header>
-      <div className="container header-container">
-        <Link to="/" className="logo">Glen<span>Steegmans</span></Link>
-        
-        <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        
-        <nav className={menuOpen ? 'active' : ''}>
-          <ul>
-            <li>
-              <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/profiel" className={location.pathname === '/profiel' ? 'active' : ''}>
-                Profiel
-              </Link>
-            </li>
-            <li>
-              <Link to="/activiteiten" className={location.pathname === '/activiteiten' ? 'active' : ''}>
-                Activiteiten
-              </Link>
-            </li>
-            <li>
-              <Link to="/reflectie" className={location.pathname === '/reflectie' ? 'active' : ''}>
-                Eindreflectie
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        
-        <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-          {darkMode ? '☀️' : '🌙'}
-        </button>
+    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+      <div className="container">
+        <div className="header-content">
+          <Link to="/" className="logo" onClick={closeMenu}>
+            Glen Steegmans
+          </Link>
+          
+          <button className={`menu-toggle ${menuOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Toggle menu">
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </button>
+          
+          <nav className={`main-nav ${menuOpen ? 'active' : ''}`}>
+            <ul>
+              <li>
+                <NavLink to="/" onClick={closeMenu}>Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/activiteiten" onClick={closeMenu}>Activiteiten</NavLink>
+              </li>
+              <li>
+                <NavLink to="/profiel" onClick={closeMenu}>Profiel</NavLink>
+              </li>
+              <li>
+                <NavLink to="/reflectie" onClick={closeMenu}>Reflectie</NavLink>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
   );

@@ -1,0 +1,124 @@
+/* src/styles/components/ActivityCard.css */
+.activity-card {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  .activity-card-image {
+    height: 180px;
+    overflow: hidden;
+  }
+  
+  .activity-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .activity-card:hover .activity-card-image img {
+    transform: scale(1.05);
+  }
+  
+  .activity-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .activity-card h3 {
+    margin-bottom: 12px;
+    font-size: 1.4rem;
+    color: var(--text);
+  }
+  
+  .activity-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .tag {
+    background-color: rgba(42, 109, 244, 0.1);
+    color: var(--primary);
+    padding: 4px 10px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .tag-more {
+    background-color: rgba(42, 109, 244, 0.05);
+    color: var(--primary);
+    padding: 4px 10px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .activity-card p {
+    margin-bottom: 20px;
+    color: var(--text);
+    font-size: 0.95rem;
+    flex-grow: 1;
+  }
+  
+  .activity-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+    color: var(--text);
+    opacity: 0.8;
+  }
+  
+  .activity-location, .activity-period {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .icon {
+    font-size: 1rem;
+  }
+  
+  .activity-card-btn {
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-align: center;
+    transition: var(--transition);
+    align-self: flex-start;
+  }
+  
+  .activity-card-btn:hover {
+    background-color: #2362d6;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .activity-card-image {
+      height: 150px;
+    }
+    
+    .activity-card h3 {
+      font-size: 1.2rem;
+    }
+  }
